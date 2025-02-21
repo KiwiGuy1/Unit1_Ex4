@@ -49,10 +49,7 @@ class Sailboat {
         return number_format($this->price, 2);
     }
 
-    public function toString(){
-        return "Boat Name: " . $this->boatName . "\n" .
-               "Owner Name: " . $this->ownerName . "\n" .
-               "Number of Sails: " . $this->numberOfSails . "\n" .
-               "Price: $" . $this->getFormattedPrice();
+    public function toString() {
+        return "Boat Name: " . $this->boatName . " Owner Name: " . $this->ownerName . " Number of Sails: " . $this->numberOfSails . " Price: $" . $this->getFormattedPrice();
     }
 }
