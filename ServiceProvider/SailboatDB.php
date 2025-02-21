@@ -31,7 +31,7 @@ class SailboatDB
         }
         else
         {
-            $sailboat->setOwnerName("Unknown Owner");
+            $sailboat->setOwnerName("Unknown SailBoat");
             $sailboat->setNumberOfSails(0);
             $sailboat->setPrice(0);
         }
