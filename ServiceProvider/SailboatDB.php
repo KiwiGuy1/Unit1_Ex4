@@ -1,5 +1,5 @@
 <?php
-include('Sailboat.php');
+include('class_lib/Sailboat.php');
 
 class SailboatDB
 {

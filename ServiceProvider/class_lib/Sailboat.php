@@ -50,6 +50,9 @@ class Sailboat {
     }
 
     public function toString(){
-        return "Boat Name: " . $this->boatName . "<br>Owner Name: " . $this->ownerName . "<br>Number of Sails: " . $this->numberOfSails . "<br>Price: " . $this->getFormattedPrice();
+        return "Boat Name: " . $this->boatName . "\n" .
+               "Owner Name: " . $this->ownerName . "\n" .
+               "Number of Sails: " . $this->numberOfSails . "\n" .
+               "Price: $" . $this->getFormattedPrice();
     }
 }

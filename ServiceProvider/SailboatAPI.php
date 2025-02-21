@@ -1,9 +1,8 @@
 <?php
-// Created by [Your Name] on [Date]
 header("Content-Type: application/json");
 require_once 'SailboatDB.php';
 
-$sailboatName = $_REQUEST['name'] ?? ''; // Read the variable named 'name' received from client
+$sailboatName = $_REQUEST['boatName'] ?? ''; // Read the variable named 'boatName' received from client
 
 $sailboatDB = new SailboatDB(); // Create a new SailboatDB object
 $rSailboat = $sailboatDB->getSailboat($sailboatName); // Call getSailboat() method to "look up" sailboat in DB emulator
