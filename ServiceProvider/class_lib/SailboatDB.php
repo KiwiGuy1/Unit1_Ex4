@@ -1,5 +1,5 @@
 <?php
-include('class_lib/Sailboat.php');
+include('Sailboat.php');
 
 class SailboatDB
 {
@@ -28,6 +28,18 @@ class SailboatDB
             $sailboat->setOwnerName("Bob Johnson");
             $sailboat->setNumberOfSails(4);
             $sailboat->setPrice(200000);
+        }
+        else if ($boatName == "Storm Chaser")
+        {
+            $sailboat->setOwnerName("Sam Controlman");
+            $sailboat->setNumberOfSails(5);
+            $sailboat->setPrice(3000000);
+        }
+        else if ($boatName == "Wave Runner")
+        {
+            $sailboat->setOwnerName("Jeffery Besakard");
+            $sailboat->setNumberOfSails(6);
+            $sailboat->setPrice(40000000);
         }
         else
         {
