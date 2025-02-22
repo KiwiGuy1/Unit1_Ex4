@@ -1,7 +1,11 @@
 <?php
-
+/* SailboatAPI class to exposes 2 methods, 
+    * 1 to create the DB object w/ 0 arguments
+    * 1 to take a string and search the DB for a sailtboat name that matches, a
+*/
 class SailboatAPI {
-    public static  function createDBObject() {
+    private static  function createDBObject() {
+        //create DB object w/ no arguments
         $db = new SailboatDB();
         return $db;
     }
@@ -9,11 +13,8 @@ class SailboatAPI {
     public static function getBoatFromDB ($boatName) {
         $db = self::createDBObject();                 // Create a new SailboatDB object
         $targetBoat = $db->getSailboat($boatName); // Call getSailboat() method to "look up" sailboat in DB emulator
-        return $targetBoat->toJsonString();
+        return $targetBoat->toJsonString(); //return string from get sailboat
     }
-
-
-    
 }
 header("Content-Type: application/json");
 require_once 'class_lib/SailboatDB.php';

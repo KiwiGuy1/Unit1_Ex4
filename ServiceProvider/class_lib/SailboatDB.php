@@ -9,6 +9,7 @@ class SailboatDB
         $sailboat = new Sailboat();
         
         // fill the Sailboat object with data based on boatName received
+        // 5 items & non matching case emulated
         $sailboat->setBoatName($boatName);
         
         if ($boatName == "Sea Breeze")
