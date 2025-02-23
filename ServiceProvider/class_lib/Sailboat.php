@@ -6,12 +6,7 @@ class Sailboat {
     private $numberOfSails;
     private $price;
 
-    public function __construct($boatName = "", $ownerName = "", $numberOfSails = 0, $price = 0) {
-        $this->boatName = $boatName;
-        $this->ownerName = $ownerName;
-        $this->numberOfSails = $numberOfSails;
-        $this->price = $price;
-    }
+    public function __construct() {} //Default constructor w/ no arguments
 
     public function getBoatName() {
         return $this->boatName;
@@ -50,6 +45,17 @@ class Sailboat {
     }
 
     public function toString() {
-        return "Boat Name: " . $this->boatName . " Owner Name: " . $this->ownerName . " Number of Sails: " . $this->numberOfSails . " Price: $" . $this->getFormattedPrice();
+        return "Boat Name: " . $this->boatName . ", Owner Name: " . $this->ownerName . ", Number of Sails: " . $this->numberOfSails . ", Price: $" . $this->getFormattedPrice();
+    }
+
+    public function toJsonString() {
+        //Function that will take the state of the object and return a json encoded string
+        return json_encode([
+            'sailboatString' =>$this->toString(), // string with all sailboat details
+            'boatName' => $this->boatName,
+            'ownerName' => $this->ownerName,
+            'numberOfSails' => $this->numberOfSails,
+            'price' => $this->price,
+        ]);
     }
 }

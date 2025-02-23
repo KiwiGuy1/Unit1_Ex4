@@ -1,18 +1,28 @@
 <?php
+/* SailboatAPI class to exposes 2 methods, 
+    * 1 to create the DB object w/ 0 arguments
+    * 1 to take a string and search the DB for a sailtboat name that matches, a
+*/
+class SailboatAPI {
+    private static  function createDBObject() {
+        //create DB object w/ no arguments
+        $db = new SailboatDB();
+        return $db;
+    }
+
+    public static function getBoatFromDB ($boatName) {
+        $db = self::createDBObject();                 // Create a new SailboatDB object
+        $targetBoat = $db->getSailboat($boatName); // Call getSailboat() method to "look up" sailboat in DB emulator
+        return $targetBoat->toJsonString(); //return string from get sailboat
+    }
+}
 header("Content-Type: application/json");
-require_once 'SailboatDB.php';
+require_once 'class_lib/SailboatDB.php';
 
 $sailboatName = $_REQUEST['boatName'] ?? ''; // Read the variable named 'boatName' received from client
 
-$sailboatDB = new SailboatDB(); // Create a new SailboatDB object
-$rSailboat = $sailboatDB->getSailboat($sailboatName); // Call getSailboat() method to "look up" sailboat in DB emulator
+$boatJson = SailboatAPI::getBoatFromDB($sailboatName);   //get boat & turn to json string
+echo $boatJson;
 
-$data = array(); // Create an array to store sailboat details
-$data['sailboatString'] = $rSailboat->toString(); //returns string with all sailboat details
-$data['boatName'] = $rSailboat->getBoatName();
-$data['ownerName'] = $rSailboat->getOwnerName();
-$data['nummberOfSails'] = $rSailboat->getNumberOfSails();
-$data['price'] = $rSailboat->getPrice();
 
-print(json_encode($data));
 ?>
